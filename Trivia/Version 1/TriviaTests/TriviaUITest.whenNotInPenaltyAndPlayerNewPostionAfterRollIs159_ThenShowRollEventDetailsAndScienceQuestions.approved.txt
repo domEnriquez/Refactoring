@@ -1,0 +1,15 @@
+﻿Dominic is the current player
+They have rolled a 1
+Dominic's new location is 1
+The category is Science
+Science Question 0
+Dominic is the current player
+They have rolled a 4
+Dominic's new location is 5
+The category is Science
+Science Question 1
+Dominic is the current player
+They have rolled a 4
+Dominic's new location is 9
+The category is Science
+Science Question 2

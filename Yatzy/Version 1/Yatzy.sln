@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yatzy", "Yatzy\Yatzy.csproj", "{C52A28CE-1002-4383-B6AB-6ADD3DF581F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatzyTest", "YatzyTest\YatzyTest.csproj", "{2E671836-F62A-40DA-88A0-F73600F78C3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YatzyCategories", "YatzyCategories\YatzyCategories.csproj", "{41AE73B3-7A17-4C22-93AD-3A5BA3B6EF8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C52A28CE-1002-4383-B6AB-6ADD3DF581F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52A28CE-1002-4383-B6AB-6ADD3DF581F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52A28CE-1002-4383-B6AB-6ADD3DF581F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52A28CE-1002-4383-B6AB-6ADD3DF581F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E671836-F62A-40DA-88A0-F73600F78C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E671836-F62A-40DA-88A0-F73600F78C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E671836-F62A-40DA-88A0-F73600F78C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E671836-F62A-40DA-88A0-F73600F78C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41AE73B3-7A17-4C22-93AD-3A5BA3B6EF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41AE73B3-7A17-4C22-93AD-3A5BA3B6EF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41AE73B3-7A17-4C22-93AD-3A5BA3B6EF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41AE73B3-7A17-4C22-93AD-3A5BA3B6EF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DEB1E2A-0A45-48A2-BA5A-DC323DB57A5A}
+	EndGlobalSection
+EndGlobal
