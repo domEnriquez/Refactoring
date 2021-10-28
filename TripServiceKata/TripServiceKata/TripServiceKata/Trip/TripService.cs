@@ -1,36 +1,50 @@
 ﻿using System.Collections.Generic;
 using TripServiceKata.Exception;
-using TripServiceKata.User;
+using TripServiceKata.UserSection;
 
-namespace TripServiceKata.Trip
+namespace TripServiceKata.TripSection
 {
     public class TripService
     {
-        public List<Trip> GetTripsByUser(User.User user)
+        public List<Trip> GetTripsByUser(User user)
         {
             List<Trip> tripList = new List<Trip>();
-            User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
-            bool isFriend = false;
-            if (loggedUser != null)
-            {
-                foreach(User.User friend in user.GetFriends())
-                {
-                    if (friend.Equals(loggedUser))
-                    {
-                        isFriend = true;
-                        break;
-                    }
-                }
-                if (isFriend)
-                {
-                    tripList = TripDAO.FindTripsByUser(user);
-                }
-                return tripList;
-            }
-            else
-            {
+            User loggedUser = GetLoggedUser();
+
+            if (loggedUser == null)
                 throw new UserNotLoggedInException();
+
+
+            if (areFriends(user, loggedUser))
+                tripList = FindTripsByUser(user);
+
+            return tripList;
+        }
+
+        private bool areFriends(User user, User loggedUser)
+        {
+            bool isFriend = false;
+
+            foreach (User friend in user.GetFriends())
+            {
+                if (friend.Equals(loggedUser))
+                {
+                    isFriend = true;
+                    break;
+                }
             }
+
+            return isFriend;
+        }
+
+        public virtual List<Trip> FindTripsByUser(User user)
+        {
+            return TripDAO.FindTripsByUser(user);
+        }
+
+        public virtual User GetLoggedUser()
+        {
+            return UserSession.GetInstance().GetLoggedUser();
         }
     }
 }
