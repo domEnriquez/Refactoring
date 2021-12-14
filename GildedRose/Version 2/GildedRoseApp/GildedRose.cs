@@ -36,11 +36,6 @@ namespace GildedRoseApp
         public void UpdateItemsQualityAfterADay()
         {
             Item.UpdateQualityAfterADay();
-
-            //for (var i = 0; i < Items.Count; i++)
-            //{
-            //    Items[i].UpdateQualityAfterADay();
-            //}
         }
     }
 }

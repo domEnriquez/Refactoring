@@ -23,18 +23,6 @@ namespace csharp
             items.Add(ConcertBackstagePass.Create(concertName: "TAFKAL80ETC", sellIn: 5, quality: 49));
             items.Add(Conjured.Create(name: "Conjured Mana Cake", sellIn: 3, quality: 6));
 
-            //IList<EditableItem> Items = new List<EditableItem>{
-            //    EditableItem.Create(name:"+5 Dexterity Vest", sellIn: 10, quality: 20),
-            //    AgedBrie.Create(sellIn: 2, quality: 0),
-            //    EditableItem.Create(name: "Elixir of the Mongoose", sellIn: 5, quality: 7),
-            //    Sulfuras.Create(sellIn: 0, quality: 80),
-            //    Sulfuras.Create(sellIn: -1, quality: 80), 
-            //    ConcertBackstagePass.Create(concertName: "TAFKAL80ETC", sellIn: 15, quality: 20),
-            //    ConcertBackstagePass.Create(concertName: "TAFKAL80ETC", sellIn: 10, quality: 49),
-            //    ConcertBackstagePass.Create(concertName: "TAFKAL80ETC", sellIn: 5, quality: 49),
-            //    Conjured.Create(name: "Conjured Mana Cake", sellIn: 3, quality: 6)
-            //};
-
             GildedRose app = new GildedRose(items);
 
 
@@ -44,8 +32,6 @@ namespace csharp
                 Console.WriteLine("name, sellIn, quality");
 
                 items.DisplayItems();
-                //for (var j = 0; j < Items.Count; j++)
-                //    Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
 
                 app.UpdateItemsQualityAfterADay();
             }
