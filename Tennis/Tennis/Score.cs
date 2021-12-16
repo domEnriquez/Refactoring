@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tennis
 {
-    public static class ScoreConstants
+    public static class Score
     {
         public const int LOVE = 0;
         public const int FIFTEEN = 1;

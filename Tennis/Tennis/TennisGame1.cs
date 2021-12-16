@@ -25,7 +25,7 @@ namespace Tennis
         {
             if (m_score1 == m_score2)
                 return equalScoreDisplay();
-            else if (m_score1 > ScoreConstants.FORTY || m_score2 > ScoreConstants.FORTY)
+            else if (m_score1 > Score.FORTY || m_score2 > Score.FORTY)
                 return winnerPlayerDisplay();
             else
                 return scoreDisplay();
@@ -35,11 +35,11 @@ namespace Tennis
         {
             switch (m_score1)
             {
-                case ScoreConstants.LOVE:
+                case Score.LOVE:
                     return "Love-All";
-                case ScoreConstants.FIFTEEN:
+                case Score.FIFTEEN:
                     return "Fifteen-All";
-                case ScoreConstants.THIRTY:
+                case Score.THIRTY:
                     return "Thirty-All";
                 default:
                     return "Deuce";
@@ -72,13 +72,13 @@ namespace Tennis
         {
             switch (score)
             {
-                case ScoreConstants.LOVE:
+                case Score.LOVE:
                     return "Love";
-                case ScoreConstants.FIFTEEN:
+                case Score.FIFTEEN:
                     return "Fifteen";
-                case ScoreConstants.THIRTY:
+                case Score.THIRTY:
                     return "Thirty";
-                case ScoreConstants.FORTY:
+                case Score.FORTY:
                     return "Forty";
                 default:
                     return string.Empty;
