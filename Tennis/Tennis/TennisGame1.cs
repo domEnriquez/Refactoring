@@ -15,7 +15,7 @@ namespace Tennis
 
         public void WonPoint(string playerName)
         {
-            if (playerName == "player1")
+            if (playerName == player1Name)
                 m_score1 += 1;
             else
                 m_score2 += 1;
@@ -23,59 +23,66 @@ namespace Tennis
 
         public string GetScore()
         {
-            string score = "";
-            var tempScore = 0;
             if (m_score1 == m_score2)
-            {
-                switch (m_score1)
-                {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
-
-                }
-            }
-            else if (m_score1 >= 4 || m_score2 >= 4)
-            {
-                var minusResult = m_score1 - m_score2;
-                if (minusResult == 1) score = "Advantage player1";
-                else if (minusResult == -1) score = "Advantage player2";
-                else if (minusResult >= 2) score = "Win for player1";
-                else score = "Win for player2";
-            }
+                return equalScoreDisplay();
+            else if (m_score1 > ScoreConstants.FORTY || m_score2 > ScoreConstants.FORTY)
+                return winnerPlayerDisplay();
             else
+                return scoreDisplay();
+        }
+
+        private string equalScoreDisplay()
+        {
+            switch (m_score1)
             {
-                for (var i = 1; i < 3; i++)
-                {
-                    if (i == 1) tempScore = m_score1;
-                    else { score += "-"; tempScore = m_score2; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
-                }
+                case ScoreConstants.LOVE:
+                    return "Love-All";
+                case ScoreConstants.FIFTEEN:
+                    return "Fifteen-All";
+                case ScoreConstants.THIRTY:
+                    return "Thirty-All";
+                default:
+                    return "Deuce";
             }
-            return score;
+        }
+
+        private string scoreDisplay()
+        {
+            string p1Score = equivalentScore(m_score1);
+            string p2Score = equivalentScore(m_score2);
+
+            return p1Score + "-" + p2Score;
+        }
+
+        private string winnerPlayerDisplay()
+        {
+            int minusResult = m_score1 - m_score2;
+
+            if (minusResult == 1)
+                return "Advantage " + player1Name;
+            else if (minusResult == -1)
+                return "Advantage " + player2Name;
+            else if (minusResult >= 2)
+                return "Win for " + player1Name;
+            else
+                return "Win for " + player2Name;
+        }
+
+        private string equivalentScore(int score)
+        {
+            switch (score)
+            {
+                case ScoreConstants.LOVE:
+                    return "Love";
+                case ScoreConstants.FIFTEEN:
+                    return "Fifteen";
+                case ScoreConstants.THIRTY:
+                    return "Thirty";
+                case ScoreConstants.FORTY:
+                    return "Forty";
+                default:
+                    return string.Empty;
+            }
         }
     }
 }
