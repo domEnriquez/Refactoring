@@ -1,16 +1,31 @@
+using System;
+using TheatricalPlayersRefactoringKata.PlayImplementations;
+
 namespace TheatricalPlayersRefactoringKata
 {
-    public class Play
+    public abstract class Play
     {
-        private string _name;
-        private string _type;
+        private string name;
 
-        public string Name { get => _name; set => _name = value; }
-        public string Type { get => _type; set => _type = value; }
+        public string Name { get => name; set => name = value; }
 
-        public Play(string name, string type) {
-            this._name = name;
-            this._type = type;
+        protected Play(string name)
+        {
+            this.name = name;
         }
+
+        public static Play Create(string name, string type)
+        {
+            if (type == "tragedy")
+                return new TragedyPlay(name);
+            else if (type == "comedy")
+                return new ComedyPlay(name);
+            else
+                throw new Exception("unknown type: " + type);
+        }
+
+        public abstract int Cost(int audience);
+
+        public abstract int VolumeCredits(int audience);
     }
 }

@@ -4,17 +4,44 @@ namespace TheatricalPlayersRefactoringKata
 {
     public class Invoice
     {
-        private string _customer;
-        private List<Performance> _performances;
+        private string customer;
+        private List<Performance> performances;
 
-        public string Customer { get => _customer; set => _customer = value; }
-        public List<Performance> Performances { get => _performances; set => _performances = value; }
+        public string Customer { get => customer; set => customer = value; }
+        public List<Performance> Performances { get => performances; set => performances = value; }
 
-        public Invoice(string customer, List<Performance> performance)
+        public Invoice(string customer, List<Performance> performances)
         {
-            this._customer = customer;
-            this._performances = performance;
+            this.customer = customer;
+            this.performances = performances;
         }
 
+        public int GetTotalAmount(Dictionary<string, Play> plays)
+        {
+            int totalAmount = 0;
+
+            foreach (Performance perf in Performances)
+            {
+                Play play = plays[perf.PlayID];
+
+                totalAmount += play.Cost(perf.Audience);
+            }
+
+            return totalAmount;
+        }
+
+        public int GetTotalVolumeCredits(Dictionary<string, Play> plays)
+        {
+            int volumeCredits = 0;
+
+            foreach (var perf in Performances)
+            {
+                Play play = plays[perf.PlayID];
+
+                volumeCredits += play.VolumeCredits(perf.Audience);
+            }
+
+            return volumeCredits;
+        }
     }
 }
