@@ -2,16 +2,15 @@
 {
     public class Character
     {
-        internal readonly int armorClass;
-        internal readonly int damageDealt;
-
+        public int ArmorClass { get; internal set; }
+        public int DamageDealt { get; internal set; }
         public string Race { get; internal set; }
-        internal int Force { get; set; }
+        public int Force { get; internal set; }
 
-        public Character(int armorClass, int weaponDamage, string race, int force)
+        public Character(int armorClass, int damageDealt, string race, int force)
         {
-            this.armorClass = armorClass;
-            this.damageDealt = weaponDamage;
+            ArmorClass = armorClass;
+            DamageDealt = damageDealt;
             Race = race;
             Force = force;
         }

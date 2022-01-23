@@ -8,30 +8,25 @@ namespace Game
 
         public int CalculateDamage(Character atk, Character def)
         {
-            var defaultAttack = atk.Force;            
-            int dice = random.Next(1, 20);
-            var currentAttack = defaultAttack + dice;
-            var damage = atk.damageDealt;
-            
+            int dice = DiceRoll();
 
-            if (atk.Force + dice > def.armorClass)
+            if (atk.Force + dice > def.ArmorClass)
             {
                 if (dice == 1)
-                {
-                    damage = 0;
-                }
+                    return 0;
 
                 if (dice == 20)
-                {
-                    damage = atk.damageDealt * 2;
-                }
+                    return atk.DamageDealt * 2;
 
-                return damage;
+                return atk.DamageDealt;
             }
             else
-            {
                 return 0;
-            }
+        }
+
+        public virtual int DiceRoll()
+        {
+            return random.Next(1, 20);
         }
     }
 }
